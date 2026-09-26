@@ -1,0 +1,62 @@
+{
+  "claim_count": 5,
+  "claims": [
+    {
+      "contradicting_origin_groups": 0,
+      "flags": [
+        "SHARED_ORIGIN"
+      ],
+      "id": "C01",
+      "review_state": "REVIEW_REQUIRED",
+      "source_references": 2,
+      "supporting_origin_groups": 1,
+      "text": "Job J-104 finished, with two independent confirmations.",
+      "truth_verdict": null
+    },
+    {
+      "contradicting_origin_groups": 1,
+      "flags": [],
+      "id": "C02",
+      "review_state": "CONFLICT",
+      "source_references": 2,
+      "supporting_origin_groups": 1,
+      "text": "Access for test principal P-7 was fully revoked at 10:00 AM.",
+      "truth_verdict": null
+    },
+    {
+      "contradicting_origin_groups": 0,
+      "flags": [
+        "RECONSTRUCTION"
+      ],
+      "id": "C03",
+      "review_state": "REVIEW_REQUIRED",
+      "source_references": 1,
+      "supporting_origin_groups": 0,
+      "text": "The gate was physically closed.",
+      "truth_verdict": null
+    },
+    {
+      "contradicting_origin_groups": 0,
+      "flags": [],
+      "id": "C04",
+      "review_state": "UNSOURCED",
+      "source_references": 0,
+      "supporting_origin_groups": 0,
+      "text": "The interruption was deliberate.",
+      "truth_verdict": null
+    },
+    {
+      "contradicting_origin_groups": 0,
+      "flags": [],
+      "id": "C05",
+      "review_state": "TRACEABLE",
+      "source_references": 2,
+      "supporting_origin_groups": 2,
+      "text": "The sample transfer contained 12 records.",
+      "truth_verdict": null
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Reference and declared-relation checks only; not factual verification.",
+  "synthetic": true
+}

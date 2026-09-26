@@ -1,0 +1,284 @@
+{
+  "action_only_baseline": {
+    "false_allows": 12,
+    "false_denies": 0
+  },
+  "guard": {
+    "false_allows": 0,
+    "false_denies": 0
+  },
+  "guard_reason_mismatches": 0,
+  "guard_sha256": "92c717268d7bfc283af3ccb3594d8ef817df32a2237367640a073f15acb21f4b",
+  "input_sha256": "450f356638408929efedadc2197d512a2ce9b1cbb434266f660bc3839ac7d208",
+  "model_evaluated": false,
+  "scenario_count": 24,
+  "scenarios": [
+    {
+      "action_only_baseline_allow": true,
+      "case": "Exact live read grant",
+      "expected_allow": true,
+      "expected_reason": "ALLOW",
+      "guard": {
+        "allowed": true,
+        "reason": "ALLOW"
+      },
+      "id": "P01"
+    },
+    {
+      "action_only_baseline_allow": false,
+      "case": "No grant",
+      "expected_allow": false,
+      "expected_reason": "SCOPE_MISMATCH",
+      "guard": {
+        "allowed": false,
+        "reason": "SCOPE_MISMATCH"
+      },
+      "id": "P02"
+    },
+    {
+      "action_only_baseline_allow": false,
+      "case": "Other authenticated principal",
+      "expected_allow": false,
+      "expected_reason": "SCOPE_MISMATCH",
+      "guard": {
+        "allowed": false,
+        "reason": "SCOPE_MISMATCH"
+      },
+      "id": "P03"
+    },
+    {
+      "action_only_baseline_allow": true,
+      "case": "Other resource",
+      "expected_allow": false,
+      "expected_reason": "SCOPE_MISMATCH",
+      "guard": {
+        "allowed": false,
+        "reason": "SCOPE_MISMATCH"
+      },
+      "id": "P04"
+    },
+    {
+      "action_only_baseline_allow": false,
+      "case": "Write with read-only grant",
+      "expected_allow": false,
+      "expected_reason": "SCOPE_MISMATCH",
+      "guard": {
+        "allowed": false,
+        "reason": "SCOPE_MISMATCH"
+      },
+      "id": "P05"
+    },
+    {
+      "action_only_baseline_allow": true,
+      "case": "Expired grant",
+      "expected_allow": false,
+      "expected_reason": "REVOKED_OR_EXPIRED",
+      "guard": {
+        "allowed": false,
+        "reason": "REVOKED_OR_EXPIRED"
+      },
+      "id": "P06"
+    },
+    {
+      "action_only_baseline_allow": true,
+      "case": "Exact expiry boundary",
+      "expected_allow": false,
+      "expected_reason": "REVOKED_OR_EXPIRED",
+      "guard": {
+        "allowed": false,
+        "reason": "REVOKED_OR_EXPIRED"
+      },
+      "id": "P07"
+    },
+    {
+      "action_only_baseline_allow": true,
+      "case": "Revoked grant",
+      "expected_allow": false,
+      "expected_reason": "REVOKED_OR_EXPIRED",
+      "guard": {
+        "allowed": false,
+        "reason": "REVOKED_OR_EXPIRED"
+      },
+      "id": "P08"
+    },
+    {
+      "action_only_baseline_allow": true,
+      "case": "Near-prefix resource",
+      "expected_allow": false,
+      "expected_reason": "SCOPE_MISMATCH",
+      "guard": {
+        "allowed": false,
+        "reason": "SCOPE_MISMATCH"
+      },
+      "id": "P09"
+    },
+    {
+      "action_only_baseline_allow": true,
+      "case": "Wildcard is not an exact resource",
+      "expected_allow": false,
+      "expected_reason": "NONCANONICAL_RESOURCE",
+      "guard": {
+        "allowed": false,
+        "reason": "NONCANONICAL_RESOURCE"
+      },
+      "id": "P10"
+    },
+    {
+      "action_only_baseline_allow": true,
+      "case": "Path traversal is not an opaque ID",
+      "expected_allow": false,
+      "expected_reason": "NONCANONICAL_RESOURCE",
+      "guard": {
+        "allowed": false,
+        "reason": "NONCANONICAL_RESOURCE"
+      },
+      "id": "P11"
+    },
+    {
+      "action_only_baseline_allow": false,
+      "case": "Unknown action",
+      "expected_allow": false,
+      "expected_reason": "UNSUPPORTED_ACTION",
+      "guard": {
+        "allowed": false,
+        "reason": "UNSUPPORTED_ACTION"
+      },
+      "id": "P12"
+    },
+    {
+      "action_only_baseline_allow": false,
+      "case": "Payload identity cannot impersonate",
+      "expected_allow": false,
+      "expected_reason": "SCOPE_MISMATCH",
+      "guard": {
+        "allowed": false,
+        "reason": "SCOPE_MISMATCH"
+      },
+      "id": "P13"
+    },
+    {
+      "action_only_baseline_allow": false,
+      "case": "Untrusted instruction cannot extend scope",
+      "expected_allow": false,
+      "expected_reason": "SCOPE_MISMATCH",
+      "guard": {
+        "allowed": false,
+        "reason": "SCOPE_MISMATCH"
+      },
+      "id": "P14"
+    },
+    {
+      "action_only_baseline_allow": true,
+      "case": "Payload approval is not trusted approval",
+      "expected_allow": false,
+      "expected_reason": "APPROVAL_REQUIRED",
+      "guard": {
+        "allowed": false,
+        "reason": "APPROVAL_REQUIRED"
+      },
+      "id": "P15"
+    },
+    {
+      "action_only_baseline_allow": true,
+      "case": "Publish with exact fresh approval",
+      "expected_allow": true,
+      "expected_reason": "ALLOW",
+      "guard": {
+        "allowed": true,
+        "reason": "ALLOW"
+      },
+      "id": "P16"
+    },
+    {
+      "action_only_baseline_allow": false,
+      "case": "Approval cannot replace grant",
+      "expected_allow": false,
+      "expected_reason": "SCOPE_MISMATCH",
+      "guard": {
+        "allowed": false,
+        "reason": "SCOPE_MISMATCH"
+      },
+      "id": "P17"
+    },
+    {
+      "action_only_baseline_allow": true,
+      "case": "Approval for different resource",
+      "expected_allow": false,
+      "expected_reason": "APPROVAL_REQUIRED",
+      "guard": {
+        "allowed": false,
+        "reason": "APPROVAL_REQUIRED"
+      },
+      "id": "P18"
+    },
+    {
+      "action_only_baseline_allow": true,
+      "case": "Expired approval",
+      "expected_allow": false,
+      "expected_reason": "APPROVAL_REQUIRED",
+      "guard": {
+        "allowed": false,
+        "reason": "APPROVAL_REQUIRED"
+      },
+      "id": "P19"
+    },
+    {
+      "action_only_baseline_allow": true,
+      "case": "Approval for different principal",
+      "expected_allow": false,
+      "expected_reason": "APPROVAL_REQUIRED",
+      "guard": {
+        "allowed": false,
+        "reason": "APPROVAL_REQUIRED"
+      },
+      "id": "P20"
+    },
+    {
+      "action_only_baseline_allow": true,
+      "case": "Delete needs its own approval",
+      "expected_allow": false,
+      "expected_reason": "APPROVAL_REQUIRED",
+      "guard": {
+        "allowed": false,
+        "reason": "APPROVAL_REQUIRED"
+      },
+      "id": "P21"
+    },
+    {
+      "action_only_baseline_allow": true,
+      "case": "Explicit write grant",
+      "expected_allow": true,
+      "expected_reason": "ALLOW",
+      "guard": {
+        "allowed": true,
+        "reason": "ALLOW"
+      },
+      "id": "P22"
+    },
+    {
+      "action_only_baseline_allow": false,
+      "case": "Malformed proposed action",
+      "expected_allow": false,
+      "expected_reason": "MALFORMED_REQUEST",
+      "guard": {
+        "allowed": false,
+        "reason": "MALFORMED_REQUEST"
+      },
+      "id": "P23"
+    },
+    {
+      "action_only_baseline_allow": true,
+      "case": "Request note does not block a valid grant",
+      "expected_allow": true,
+      "expected_reason": "ALLOW",
+      "guard": {
+        "allowed": true,
+        "reason": "ALLOW"
+      },
+      "id": "P24"
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Deterministic policy decisions on an authored fixture matrix; no execution or external-system test.",
+  "synthetic": true
+}

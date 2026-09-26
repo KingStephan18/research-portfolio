@@ -1,0 +1,57 @@
+{
+  "synthetic": true,
+  "title": "Same name, different people",
+  "question": "Does the 1891 marriage entry refer to Elias Vale born in 1854 or Elias Vale born in 1859?",
+  "records": [
+    {
+      "id": "R01",
+      "type": "birth entry",
+      "date": "02/14/1854",
+      "person": "Elias Vale, candidate A",
+      "details": "Parents: Joseph Vale and Anna Reed. Mill Street. Invented original-entry abstraction.",
+      "origin": "birth-register-A"
+    },
+    {
+      "id": "R02",
+      "type": "birth entry",
+      "date": "07/03/1859",
+      "person": "Elias Vale, candidate B",
+      "details": "Parents: Samuel Vale and Ruth Lane. Station Road. Invented original-entry abstraction.",
+      "origin": "birth-register-B"
+    },
+    {
+      "id": "R03",
+      "type": "marriage entry",
+      "date": "06/18/1891",
+      "person": "Elias Vale and Mara Holt",
+      "details": "Groom age 36; father Joseph Vale; occupation joiner; Mill Street. Invented original-entry abstraction.",
+      "origin": "marriage-register"
+    },
+    {
+      "id": "R04",
+      "type": "household entry",
+      "date": "04/05/1891",
+      "person": "Elias Vale, candidate B",
+      "details": "Age 31; wife Ada; Station Road; father Samuel listed in the household. Invented original-entry abstraction.",
+      "origin": "household-register"
+    },
+    {
+      "id": "R05",
+      "type": "online tree summary",
+      "date": null,
+      "person": "Elias Vale",
+      "details": "Links the 1891 groom to the 1859 birth. No independent source beyond a copied marriage index.",
+      "origin": "marriage-register"
+    },
+    {
+      "id": "R06",
+      "type": "occupation entry",
+      "date": "08/11/1888",
+      "person": "Elias Vale, candidate A",
+      "details": "Joiner at Mill Street; father Joseph. Invented original-entry abstraction.",
+      "origin": "occupation-register"
+    }
+  ],
+  "bounded_conclusion": "Within this invented packet, candidate A is better supported. The age discrepancy and incompleteness of the packet prevent treating it as a real-world genealogical proof.",
+  "dna_data_included": false
+}

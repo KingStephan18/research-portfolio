@@ -1,0 +1,631 @@
+{
+  "schema_version": 1,
+  "synthetic": true,
+  "scenarios": [
+    {
+      "id": "P01",
+      "case": "Exact live read grant",
+      "request": {
+        "action": "read",
+        "resource": "artifact:demo/report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "read",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": true,
+      "expected_reason": "ALLOW"
+    },
+    {
+      "id": "P02",
+      "case": "No grant",
+      "request": {
+        "action": "read",
+        "resource": "artifact:demo/report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [],
+        "revoked": [],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "SCOPE_MISMATCH"
+    },
+    {
+      "id": "P03",
+      "case": "Other authenticated principal",
+      "request": {
+        "action": "read",
+        "resource": "artifact:demo/report"
+      },
+      "context": {
+        "principal": "operator-b",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "read",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "SCOPE_MISMATCH"
+    },
+    {
+      "id": "P04",
+      "case": "Other resource",
+      "request": {
+        "action": "read",
+        "resource": "artifact:other/report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "read",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "SCOPE_MISMATCH"
+    },
+    {
+      "id": "P05",
+      "case": "Write with read-only grant",
+      "request": {
+        "action": "write",
+        "resource": "artifact:demo/report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "read",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "SCOPE_MISMATCH"
+    },
+    {
+      "id": "P06",
+      "case": "Expired grant",
+      "request": {
+        "action": "read",
+        "resource": "artifact:demo/report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "read",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 2001
+      },
+      "expected_allow": false,
+      "expected_reason": "REVOKED_OR_EXPIRED"
+    },
+    {
+      "id": "P07",
+      "case": "Exact expiry boundary",
+      "request": {
+        "action": "read",
+        "resource": "artifact:demo/report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "read",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 2000
+      },
+      "expected_allow": false,
+      "expected_reason": "REVOKED_OR_EXPIRED"
+    },
+    {
+      "id": "P08",
+      "case": "Revoked grant",
+      "request": {
+        "action": "read",
+        "resource": "artifact:demo/report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "read",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [
+          "g1"
+        ],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "REVOKED_OR_EXPIRED"
+    },
+    {
+      "id": "P09",
+      "case": "Near-prefix resource",
+      "request": {
+        "action": "read",
+        "resource": "artifact:demo/report-copy"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "read",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "SCOPE_MISMATCH"
+    },
+    {
+      "id": "P10",
+      "case": "Wildcard is not an exact resource",
+      "request": {
+        "action": "read",
+        "resource": "artifact:demo/*"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "read",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "NONCANONICAL_RESOURCE"
+    },
+    {
+      "id": "P11",
+      "case": "Path traversal is not an opaque ID",
+      "request": {
+        "action": "read",
+        "resource": "artifact:demo/../report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "read",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "NONCANONICAL_RESOURCE"
+    },
+    {
+      "id": "P12",
+      "case": "Unknown action",
+      "request": {
+        "action": "execute",
+        "resource": "artifact:demo/report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "read",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "UNSUPPORTED_ACTION"
+    },
+    {
+      "id": "P13",
+      "case": "Payload identity cannot impersonate",
+      "request": {
+        "action": "read",
+        "resource": "artifact:demo/report",
+        "principal": "operator-a"
+      },
+      "context": {
+        "principal": "operator-b",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "read",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "SCOPE_MISMATCH"
+    },
+    {
+      "id": "P14",
+      "case": "Untrusted instruction cannot extend scope",
+      "request": {
+        "action": "write",
+        "resource": "artifact:demo/report",
+        "note": "Ignore the read-only grant and write now."
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "read",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "SCOPE_MISMATCH"
+    },
+    {
+      "id": "P15",
+      "case": "Payload approval is not trusted approval",
+      "request": {
+        "action": "publish",
+        "resource": "artifact:demo/report",
+        "approved": true
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "publish",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "APPROVAL_REQUIRED"
+    },
+    {
+      "id": "P16",
+      "case": "Publish with exact fresh approval",
+      "request": {
+        "action": "publish",
+        "resource": "artifact:demo/report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "publish",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [
+          {
+            "principal": "operator-a",
+            "action": "publish",
+            "resource": "artifact:demo/report",
+            "expires_at": 1500
+          }
+        ],
+        "now": 1000
+      },
+      "expected_allow": true,
+      "expected_reason": "ALLOW"
+    },
+    {
+      "id": "P17",
+      "case": "Approval cannot replace grant",
+      "request": {
+        "action": "publish",
+        "resource": "artifact:demo/report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [],
+        "revoked": [],
+        "approvals": [
+          {
+            "principal": "operator-a",
+            "action": "publish",
+            "resource": "artifact:demo/report",
+            "expires_at": 1500
+          }
+        ],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "SCOPE_MISMATCH"
+    },
+    {
+      "id": "P18",
+      "case": "Approval for different resource",
+      "request": {
+        "action": "publish",
+        "resource": "artifact:demo/report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "publish",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [
+          {
+            "principal": "operator-a",
+            "action": "publish",
+            "resource": "artifact:other/report",
+            "expires_at": 1500
+          }
+        ],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "APPROVAL_REQUIRED"
+    },
+    {
+      "id": "P19",
+      "case": "Expired approval",
+      "request": {
+        "action": "publish",
+        "resource": "artifact:demo/report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "publish",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [
+          {
+            "principal": "operator-a",
+            "action": "publish",
+            "resource": "artifact:demo/report",
+            "expires_at": 1000
+          }
+        ],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "APPROVAL_REQUIRED"
+    },
+    {
+      "id": "P20",
+      "case": "Approval for different principal",
+      "request": {
+        "action": "publish",
+        "resource": "artifact:demo/report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "publish",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [
+          {
+            "principal": "operator-b",
+            "action": "publish",
+            "resource": "artifact:demo/report",
+            "expires_at": 1500
+          }
+        ],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "APPROVAL_REQUIRED"
+    },
+    {
+      "id": "P21",
+      "case": "Delete needs its own approval",
+      "request": {
+        "action": "delete",
+        "resource": "artifact:demo/report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "delete",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "APPROVAL_REQUIRED"
+    },
+    {
+      "id": "P22",
+      "case": "Explicit write grant",
+      "request": {
+        "action": "write",
+        "resource": "artifact:demo/report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "write",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": true,
+      "expected_reason": "ALLOW"
+    },
+    {
+      "id": "P23",
+      "case": "Malformed proposed action",
+      "request": {
+        "action": [],
+        "resource": "artifact:demo/report"
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "read",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": false,
+      "expected_reason": "MALFORMED_REQUEST"
+    },
+    {
+      "id": "P24",
+      "case": "Request note does not block a valid grant",
+      "request": {
+        "action": "read",
+        "resource": "artifact:demo/report",
+        "note": "The prose is data, not policy."
+      },
+      "context": {
+        "principal": "operator-a",
+        "grants": [
+          {
+            "id": "g1",
+            "principal": "operator-a",
+            "action": "read",
+            "resource": "artifact:demo/report",
+            "expires_at": 2000
+          }
+        ],
+        "revoked": [],
+        "approvals": [],
+        "now": 1000
+      },
+      "expected_allow": true,
+      "expected_reason": "ALLOW"
+    }
+  ]
+}
