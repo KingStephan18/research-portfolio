@@ -22,7 +22,7 @@ I investigate systems, evidence and human identity. Cybersecurity is my technica
 
 **[South Bank, After Hours](acting/south-bank-after-hours.md)** — a non-verbal performance study: two strangers, one bench, a choice to stay.
 
-**[The Dental Files](acting/the-dental-files.md)** — a paranormal / deadpan-comedy series concept.
+**[Casework: Unknown](acting/casework-unknown.md)** — a paranormal / deadpan-comedy series concept.
 
 The screen section contains existing development writing from the supplied portfolio, edited for this edition. No showreel, completed shoot or professional acting credit is asserted. [Screen provenance](acting/PROVENANCE.md).
 
@@ -38,6 +38,6 @@ python verify.py
 
 Python 3.13.5 was exercised in the build environment. See [validation](VALIDATION.md), [method](methodology/research-method.md), [sources](SOURCES.md) and [contributions](CONTRIBUTIONS.md).
 
-Edition 4 · 09/26/2026. Supplied screen-development material and new AI-assisted demonstrations are distinguished throughout. No employer, studio, school or agency affiliation is implied.
+Edition 4.2 · 09/26/2026. Supplied screen-development material and new AI-assisted demonstrations are distinguished throughout. No employer, studio, school or agency affiliation is implied.
 
 [GitHub profile](https://github.com/KingStephan18)

@@ -1,6 +1,6 @@
 # Validation
 
-Edition 4.1 · 09/26/2026
+Edition 4.2 · 09/26/2026
 
 ## Reproducible technical checks
 

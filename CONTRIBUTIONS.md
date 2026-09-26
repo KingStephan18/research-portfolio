@@ -1,11 +1,11 @@
 # Contributions and provenance
 
-Edition 4.1 · 09/26/2026
+Edition 4.2 · 09/26/2026
 
 | Contribution | Responsibility |
 |---|---|
 | Direction and scope | Stephan chose the audiences, research domains, cybersecurity priority, privacy boundary and the inclusion of his existing acting portfolio. He requested iterative audits and retains the publication decision. |
-| Existing screen material | The earlier supplied portfolio contains The Quiet Stage direction, a practice profile, the South Bank scene and The Dental Files concept. These materials were not invented as new achievements in this technical build. The earlier document's full drafting history is not established. |
+| Existing screen material | The earlier supplied portfolio contains The Quiet Stage direction, a practice profile, the South Bank scene and Casework: Unknown concept. These materials were not invented as new achievements in this technical build. The earlier document's full drafting history is not established. |
 | Editorial and technical work | OpenAI assistance designed and implemented the technical demonstrations and synthetic cases, drafted FRAME 17, and edited and presented the existing screen material. |
 | Verification | OpenAI assistance ran the documented code, browser and packaging checks in the build environment. These are not independent professional assessments or acting auditions. |
 | Approval and rights | Stephan remains the editor and publication decision-maker. The public edition intentionally omits personal imagery; other rights-dependent material still requires the appropriate review. |
