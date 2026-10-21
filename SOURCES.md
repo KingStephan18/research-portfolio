@@ -13,3 +13,12 @@ All evidence packets in this portfolio are synthetic. The external references de
 6. Python 3.13 documentation — JSON; duplicate object names and non-finite values are accepted by default, and decoding hooks permit stricter handling. https://docs.python.org/3.13/library/json.html
 
 References 5–6 were read for edition 2 on 09/26/2026. They describe design principles and parser behavior, not independent verification of this portfolio.
+
+## Cybersecurity research extension — checked 10/21/2026
+
+7. ENISA, *Threat Landscape 2026* (published 09/22/2026): EU threat landscape, interdependencies, ransomware, DDoS and espionage. https://www.enisa.europa.eu/publications/enisa-threat-landscape-2026
+8. OpenSSF, *Maintainers’ Guide: Securing CI/CD Pipelines After the tj-actions and reviewdog Supply Chain Attacks* (06/11/2025): observed compromise chain and CI hardening. https://openssf.org/blog/2025/06/11/maintainers-guide-securing-ci-cd-pipelines-after-the-tj-actions-and-reviewdog-supply-chain-attacks/
+9. GitHub Docs, *Secure use reference*: risks of privileged PR triggers, script injection and third-party action dependencies. https://docs.github.com/en/actions/reference/security/secure-use
+10. CISA/ESF, *Securing the Software Supply Chain: Recommended Practices for Managing OSS and SBOMs*: ecosystem dependency and inventory management guidance. https://www.cisa.gov/sites/default/files/2024-08/ESF_SECURING_THE_SOFTWARE_SUPPLY_CHAIN%20RECOMMENDED%20PRACTICES%20FOR%20MANAGING%20OPEN%20SOURCE%20SOFTWARE%20AND%20SOFTWARE%20BILL%20OF%20MATERIALS_508.pdf
+
+References are threat-context and design sources, not endorsements of the sample or third-party validation.

@@ -14,7 +14,7 @@ def run(command: list[str]) -> subprocess.CompletedProcess:
 
 def main() -> int:
     failures=[]
-    for folder in ['evidence-ledger','permission-boundary']:
+    for folder in ['evidence-ledger','permission-boundary','maintainer-security']:
         r=run(['-m','unittest','discover','-s',folder,'-v'])
         print(f'{folder}: '+('PASS' if r.returncode==0 else 'FAIL'))
         print(r.stderr.strip())

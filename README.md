@@ -41,3 +41,9 @@ Python 3.13.5 was exercised in the build environment. See [validation](VALIDATIO
 Edition 4.2 · 09/26/2026. Supplied screen-development material and new AI-assisted demonstrations are distinguished throughout. No employer, studio, school or agency affiliation is implied.
 
 [GitHub profile](https://github.com/KingStephan18)
+
+### Security research extension — 10/21/2026
+
+A new [Maintainer Workflow Review](maintainer-security/README.md) Python sample checks selected GitHub Actions supply-chain risk patterns **offline and read-only**. Its [threat model](maintainer-security/THREAT_MODEL.md) connects concrete maintainer controls with ENISA's 2026 threat picture and documented OpenSSF/GitHub guidance. It is a limited, author-tested heuristic checker, **not** a vulnerability detection service or evidence of a real-world security improvement.
+
+Run `python -m unittest discover -s maintainer-security -v` for the new synthetic tests. To inspect workflows under a local repository, use `python maintainer-security/workflow_review.py /path/to/repository`. A missing workflow directory produces `NOT_ASSESSED`, not a safety claim. This extension is maintained as repository source only; it has not been inserted into the frozen edition 4.2 downloadable portfolio package or released as an independently licensed project.
