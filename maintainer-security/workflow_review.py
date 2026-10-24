@@ -8,11 +8,13 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 from pathlib import Path
 from typing import Any
 
 MAX_FILES = 100
+MAX_DIRECTORY_ENTRIES = 1_000
 MAX_FILE_BYTES = 262_144
 SHA40 = re.compile(r"[a-fA-F0-9]{40}\Z")
 DOCKER_DIGEST = re.compile(r"docker://[^\s@]+@sha256:[a-fA-F0-9]{64}\Z")
@@ -78,30 +80,44 @@ def review_text(path: str, text: str) -> list[dict[str, Any]]:
 def audit_root(root: Path) -> tuple[dict[str, Any], int]:
     """Read only .github/workflows direct YAML children; refuse symlink traversal."""
     report: dict[str, Any] = {
-        "tool": "maintainer-workflow-review", "version": "0.1.0",
+        "tool": "maintainer-workflow-review", "version": "0.1.1",
         "method": "conservative textual heuristics; not YAML parsing or a safety certificate",
         "workflow_count": 0, "findings": [],
     }
-    if not root.is_dir() or root.is_symlink():
-        return {**report, "outcome": "NOT_ASSESSED", "error": "INVALID_ROOT"}, 2
-    base = root / ".github"
-    folder = base / "workflows"
-    if base.is_symlink() or folder.is_symlink():
-        return {**report, "outcome": "NOT_ASSESSED", "error": "SYMLINK_DIRECTORY"}, 2
-    if not folder.is_dir():
-        return {**report, "outcome": "NOT_ASSESSED", "error": "NO_WORKFLOW_DIRECTORY"}, 2
-    paths = sorted((p for p in folder.iterdir() if p.suffix.lower() in {".yml", ".yaml"}), key=lambda p: p.name)
-    if not paths:
-        return {**report, "outcome": "NOT_ASSESSED", "error": "NO_WORKFLOWS"}, 2
-    if len(paths) > MAX_FILES:
-        return {**report, "outcome": "NOT_ASSESSED", "error": "TOO_MANY_FILES"}, 2
+    try:
+        if not root.is_dir() or root.is_symlink():
+            return {**report, "outcome": "NOT_ASSESSED", "error": "INVALID_ROOT"}, 2
+        base = root / ".github"
+        folder = base / "workflows"
+        if base.is_symlink() or folder.is_symlink():
+            return {**report, "outcome": "NOT_ASSESSED", "error": "SYMLINK_DIRECTORY"}, 2
+        if not folder.is_dir():
+            return {**report, "outcome": "NOT_ASSESSED", "error": "NO_WORKFLOW_DIRECTORY"}, 2
+        paths = []
+        # scandir streams entries; Path.iterdir may eagerly materialize a directory.
+        with os.scandir(folder) as entries:
+            for count, entry in enumerate(entries, 1):
+                if count > MAX_DIRECTORY_ENTRIES:
+                    return {**report, "outcome": "NOT_ASSESSED", "error": "TOO_MANY_ENTRIES"}, 2
+                path = folder / entry.name
+                if path.suffix.lower() in {".yml", ".yaml"}:
+                    paths.append(path)
+                    if len(paths) > MAX_FILES:
+                        return {**report, "outcome": "NOT_ASSESSED", "error": "TOO_MANY_FILES"}, 2
+        if not paths:
+            return {**report, "outcome": "NOT_ASSESSED", "error": "NO_WORKFLOWS"}, 2
+        paths.sort(key=lambda path: path.name)
+    except OSError:
+        return {**report, "outcome": "NOT_ASSESSED", "error": "UNREADABLE_WORKFLOW_DIRECTORY"}, 2
     for path in paths:
-        if path.is_symlink() or not path.is_file():
-            return {**report, "outcome": "NOT_ASSESSED", "error": "INVALID_WORKFLOW_ENTRY"}, 2
         try:
+            if path.is_symlink() or not path.is_file():
+                return {**report, "outcome": "NOT_ASSESSED", "error": "INVALID_WORKFLOW_ENTRY"}, 2
             if path.stat().st_size > MAX_FILE_BYTES:
                 return {**report, "outcome": "NOT_ASSESSED", "error": "FILE_TOO_LARGE"}, 2
-            payload = path.read_bytes()
+            # Bound the actual allocation even if the file grows after stat().
+            with path.open("rb") as handle:
+                payload = handle.read(MAX_FILE_BYTES + 1)
             if len(payload) > MAX_FILE_BYTES:
                 return {**report, "outcome": "NOT_ASSESSED", "error": "FILE_TOO_LARGE"}, 2
             text = payload.decode("utf-8", errors="strict")

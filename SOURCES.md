@@ -7,7 +7,7 @@ Checked for this edition on 09/26/2026. These are external reference points, not
 3. GitHub — Managing your profile README; a nonempty root README in a public repository matching the username is displayed on the profile. https://docs.github.com/en/account-and-profile/how-tos/profile-customization/managing-your-profile-readme
 4. GitHub — Configuring a publishing source for GitHub Pages. https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
 
-All evidence packets in this portfolio are synthetic. The external references describe general methods or platform behavior; they do not authenticate the invented records or establish a family relationship.
+The original teaching datasets in Evidence Ledger, Permission Boundary Lab and the namesake exercise are synthetic. The separately dated cybersecurity research pages discuss real public advisories, with attribution. General method references do not authenticate the invented records or establish a family relationship.
 
 5. OWASP — Authorization Cheat Sheet; least privilege, default denial, per-request checks, server-side enforcement and authorization tests. https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html
 6. Python 3.13 documentation — JSON; duplicate object names and non-finite values are accepted by default, and decoding hooks permit stricter handling. https://docs.python.org/3.13/library/json.html
@@ -22,3 +22,11 @@ References 5–6 were read for edition 2 on 09/26/2026. They describe design pri
 10. CISA/ESF, *Securing the Software Supply Chain: Recommended Practices for Managing OSS and SBOMs*: ecosystem dependency and inventory management guidance. https://www.cisa.gov/sites/default/files/2024-08/ESF_SECURING_THE_SOFTWARE_SUPPLY_CHAIN%20RECOMMENDED%20PRACTICES%20FOR%20MANAGING%20OPEN%20SOURCE%20SOFTWARE%20AND%20SOFTWARE%20BILL%20OF%20MATERIALS_508.pdf
 
 References are threat-context and design sources, not endorsements of the sample or third-party validation.
+
+## Current security-research sources — rechecked 10/24/2026
+
+11. PHP project, security advisory of 10/21 and session upload-progress notice of 10/23. https://www.php.net/archive/2026.php
+12. Node.js project, *Wednesday, October 21, 2026 Security Releases*. https://nodejs.org/en/blog/vulnerability/october-2026-security-releases
+13. OpenAI, *Codex for Open Source*: program description, not evidence of selection of this project. https://openai.com/form/codex-for-oss/
+
+The public [research overview](security-research/README.md) distinguishes upstream disclosures from original research candidates. The [10/24 audit](security-research/AUDIT_2026-10-24.md) reports repository checks, not a new third-party vulnerability discovery. Earlier references retain their original review dates; they were not all refreshed in this audit.

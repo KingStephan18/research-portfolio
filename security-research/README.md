@@ -3,7 +3,8 @@
 
 **Researcher and project owner:** Stephan Szwaj · [KingStephan18](https://github.com/KingStephan18)  
 **Status:** active independent cybersecurity research  
-**Public entry point:** [research-portfolio](../README.md)
+**Public entry point:** [research-portfolio](../README.md) · [Website](https://kingstephan18.github.io/research-portfolio/)  
+**Latest maintenance:** [10/24/2026 repository audit and fixes](AUDIT_2026-10-24.md)
 
 I research security weaknesses in software and in the workflows used to build and maintain it. My work combines public vulnerability intelligence, manual review of GitHub-hosted source code, historical patch comparison and evidence-led triage of potentially unreported flaws. AI/Codex supports this work; research decisions, interpretation and publication remain my responsibility.
 
@@ -19,7 +20,7 @@ The objective is to produce useful, inspectable evidence for maintainers: identi
 | [Permission Boundary Lab](../permission-boundary/README.md) | Executable examples of exact-scope authorization, expiry and revocation. |
 | [Evidence Ledger](../evidence-ledger/README.md) | Source provenance, evidence classification and explicit warning states. |
 
-The maintainer-security module was published in [commit 2855c47](https://github.com/KingStephan18/research-portfolio/commit/2855c47c2f3036f1f22bd038e5d9c0fbd76d8ee7) on 10/21/2026. [VALIDATION.md](../VALIDATION.md) records 20 author-run synthetic tests for that extension. That historical result is not a new test run or an independent security certification. The tool flags review signals; it does not establish that a repository is safe or compromised.
+The maintainer-security module was published in [commit 2855c47](https://github.com/KingStephan18/research-portfolio/commit/2855c47c2f3036f1f22bd038e5d9c0fbd76d8ee7) on 10/21/2026. [VALIDATION.md](../VALIDATION.md) records 20 author-run synthetic tests for that extension. That historical result is preserved. The later [10/24 audit](AUDIT_2026-10-24.md) reran all suites and added regression coverage: 25 tests now cover this module, with 108 tests across the repository. Neither run is an independent security certification. The tool flags review signals; it does not establish that a repository is safe or compromised.
 
 ## Progress during 10/21–10/24/2026
 
@@ -28,7 +29,7 @@ The maintainer-security module was published in [commit 2855c47](https://github.
 | 10/21/2026 | Published the maintainer-security tool, tests and threat model. The commit and files above are directly inspectable. Submitted a Codex for Open Source application using this public repository. |
 | 10/22/2026 | Completed a bounded manual review of selected GitHub-hosted archive-library source and historical fixes. Research candidates were separated from known issues and unresolved prior-art questions. This is maintainer-reported research progress; private working evidence is not published here. |
 | 10/23–10/24/2026 | Continued primary-source review of PHP security notices and the Node.js October release, separating upstream advisories from original research. The source-linked notes below were refreshed on 10/24. |
-| 10/24/2026 | Added this public research overview and a prominent entry in the repository README so the active project and recent work can be assessed from GitHub. |
+| 10/24/2026 | Published this overview and repository entry, then repaired input-handling and manifest-verifier defects, added regression tests, and linked current research from the existing website. See the [audit evidence](AUDIT_2026-10-24.md). |
 
 Original source-review candidates are awaiting further validation and novelty checks. No new CVE or confirmed zero-day is claimed. Unvalidated candidate details are withheld rather than published as a vulnerability report.
 
@@ -58,4 +59,4 @@ I submitted an application on **10/21/2026**, identifying myself as primary main
 
 This page publishes the project description, selected public-source research and an appropriately scoped progress record. Private endpoint information, credentials, raw working files and unvalidated vulnerability details are excluded.
 
-This is a documentation update to the live repository. It does not change executable samples, assign a license, or rebuild the frozen edition 4.2 HTML/download bundle. Existing [contribution and authorship notes](../CONTRIBUTIONS.md) remain in force. The existing [validation record](../VALIDATION.md) continues to describe historical test coverage; no new runtime test result is asserted by this page.
+The initial overview publication was documentation-only. The subsequent 10/24 audit updates the workflow reviewer, repository verifier, regression tests and the live website. All 16 embedded downloads remain byte-for-byte unchanged as archived edition 4.2 assets; the older teaching code and datasets are preserved. No license is assigned. Existing [contribution and authorship notes](../CONTRIBUTIONS.md) remain in force; [VALIDATION.md](../VALIDATION.md) separates the new test run from historical results.

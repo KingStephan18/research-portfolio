@@ -13,6 +13,8 @@ I lead **CYBERSECURITY — INTELLIGENCE & RESPONSE**, an active independent rese
 
 I submitted this repository with my **Codex for Open Source application on 10/21/2026**. Submission is recorded; selection or funding is not claimed. The public research page separates inspectable work, maintainer-reported progress and upstream vulnerabilities discovered by other researchers.
 
+**[Completed 10/24 repository audit](security-research/AUDIT_2026-10-24.md)** — reproducible fixes, 108 local tests, integrity checks and published-site navigation updates. [Open the portfolio website](https://kingstephan18.github.io/research-portfolio/).
+
 ### Two paths
 
 **[Research and technical samples](#research-and-technical-samples)** — runnable demonstrations, a transparent synthetic case and method notes.
@@ -40,7 +42,7 @@ The screen section contains existing development writing from the supplied portf
 
 ### Inspect or run
 
-The standalone `index.html` contains the presentation and embedded downloads. The GitHub file view displays source, not a hosted site. The source package includes the actor dossier and the preserved technical work.
+The [GitHub Pages website](https://kingstephan18.github.io/research-portfolio/) presents the portfolio and links to current cybersecurity research. Its embedded downloads remain archived edition 4.2; use the repository source for current security tools and tests. The GitHub file view displays source, not the rendered website.
 
 With Python 3.10+ syntax support, run from this directory:
 
@@ -50,7 +52,7 @@ python verify.py
 
 Python 3.13.5 was exercised in the build environment. See [validation](VALIDATION.md), [method](methodology/research-method.md), [sources](SOURCES.md) and [contributions](CONTRIBUTIONS.md).
 
-Edition 4.2 · 09/26/2026. Supplied screen-development material and new AI-assisted demonstrations are distinguished throughout. No employer, studio, school or agency affiliation is implied.
+Archived downloads: edition 4.2 · 09/26/2026. Live repository and website maintenance: 10/24/2026. Supplied screen-development material and new AI-assisted demonstrations are distinguished throughout. No employer, studio, school or agency affiliation is implied.
 
 [GitHub profile](https://github.com/KingStephan18)
 

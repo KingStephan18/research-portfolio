@@ -1,6 +1,6 @@
 # Maintainer Workflow Review — offline supply-chain checks
 
-**Extension dated 10/21/2026.** A small, inspectable, read-only Python reference tool for maintainers reviewing selected GitHub Actions risks. Software supply-chain compromise is a cross-border concern: a single upstream workflow can expose credentials, alter releases, or affect downstream users. This tool only identifies a limited set of patterns **for human review**; it cannot establish that any repository is secure or compromised.
+**Published 10/21/2026; input-handling revision 0.1.1 on 10/24/2026.** A small, inspectable, read-only Python reference tool for maintainers reviewing selected GitHub Actions risks. Software supply-chain compromise is a cross-border concern: a single upstream workflow can expose credentials, alter releases, or affect downstream users. This tool only identifies a limited set of patterns **for human review**; it cannot establish that any repository is secure or compromised.
 
 ## Run
 
@@ -11,7 +11,7 @@ python -m unittest discover -s maintainer-security -v
 python maintainer-security/workflow_review.py /path/to/your/repository
 ```
 
-The scanner reads direct `.yml` / `.yaml` files in the specified repository's `.github/workflows/` directory. It prints deterministic JSON containing **only rule IDs, filenames and line numbers**, never the workflow's contents, secrets or environment values. It never modifies the target. Exit codes: `0` = no rule matches (not a security pass), `1` = review findings, `2` = no workflows or unassessable input. Tests create synthetic temporary workflows; no real workflows are run.
+The scanner reads direct `.yml` / `.yaml` files in the specified repository's `.github/workflows/` directory. It prints deterministic JSON containing **review metadata: rule IDs, relative filenames, line numbers, counts and status/error codes**, never the workflow's contents, secrets or environment values. It never modifies the target. Exit codes: `0` = no rule matches (not a security pass), `1` = review findings, `2` = no workflows or unassessable input. Tests create synthetic temporary workflows; no real workflows are run.
 
 ## Rules (review signals, not vulnerability verdicts)
 
@@ -33,8 +33,12 @@ A missing workflow directory is `NOT_ASSESSED`, not evidence of a vulnerability.
 
 ## Threat model, verification and appropriate tools
 
-Inputs are untrusted workflow **text**. Trusted assumption: the operator selects the root on a machine they control. The script declines symbolic links to workflow files or ancestor workflow directories, files above 256 KiB, invalid UTF-8, and more than 100 workflow files. It neither downloads dependencies nor authenticates repositories, so it cannot verify origin, commits, packages, signatures, runtime behaviors or any CVE. Do not run it as a privileged web service or use results as a release authorization decision.
+Inputs are untrusted workflow **text**. Trusted assumption: the operator selects the root on a machine they control. The script rejects observed symlinks at the supplied root, `.github`, `workflows` and workflow-file levels, files above 256 KiB, invalid UTF-8, more than 100 workflow files, and directories exceeding 1,000 entries. Directory enumeration is streamed; the actual file read is bounded to 256 KiB plus one byte to detect growth. Filesystem errors return `NOT_ASSESSED` with exit code 2 instead of exposing exception text. These checks are not an atomic filesystem sandbox: use a stable, operator-controlled local tree, not one concurrently modified by an adversary. It neither downloads dependencies nor authenticates repositories, so it cannot verify origin, commits, packages, signatures, runtime behaviors or any CVE. Do not run it as a privileged web service or use results as a release authorization decision.
 
 Prefer GitHub's own security settings and CodeQL, OpenSSF Scorecard, dependency review, secret scanning, manual threat modeling, independent security review and tested incident-response procedures for production use. These tools complement, rather than validate, this prototype.
 
 Research and practical controls: [global threat model](THREAT_MODEL.md), [original Permission Boundary Lab](../permission-boundary/README.md), [references](../SOURCES.md), [test evidence](../VALIDATION.md). No outside sponsor, formal certification, customer adoption or independent evaluation is claimed.
+
+## 10/24/2026 regression audit
+
+Five added tests cover denied directory access, failing metadata reads, a file growing after its size check, workflow-count limits and total directory-entry limits. The complete module suite now has **25 passing tests** in the recorded Python 3.13.5 Linux run. The original fixture describing read-only permissions was also corrected to valid block-style YAML. See [the public audit](../security-research/AUDIT_2026-10-24.md) for scope and remaining limitations.

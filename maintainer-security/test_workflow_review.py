@@ -22,7 +22,7 @@ def flags(text: str) -> set[str]:
 
 class WorkflowReviewTests(unittest.TestCase):
     def test_pinned_action_and_explicit_read_permission(self):
-        self.assertEqual(flags(f"on: push\npermissions: contents: read\nsteps:\n  - uses: actions/checkout@{PIN}\n"), set())
+        self.assertEqual(flags(f"on: push\npermissions:\n  contents: read\nsteps:\n  - uses: actions/checkout@{PIN}\n"), set())
 
     def test_mutable_action_tag(self):
         self.assertIn("UNPINNED_ACTION", flags("permissions: {}\nsteps:\n  - uses: actions/checkout@v4\n"))

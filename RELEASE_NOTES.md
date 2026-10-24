@@ -1,3 +1,13 @@
+# Live repository maintenance — 10/24/2026
+
+- Added current cybersecurity research to the existing website navigation and page; corrected its stale footer edition label. The 16 embedded edition 4.2 downloads are unchanged.
+- Maintainer Workflow Review 0.1.1 now handles metadata/enumeration failures without a traceback, bounds the actual file read and streams directory entries with explicit limits; five regression tests were added.
+- The repository verifier now rejects empty, malformed, duplicate, incomplete or unsafe manifests, checks complete non-ignored artifact coverage, and reports subprocess failures cleanly.
+- Added 15 repository-audit tests and reran the full suite: 108 tests pass in the documented environment. Updated sources, validation and the public research log.
+- No license, repository permissions, private data stores, archived download contents or original teaching datasets were changed. See [audit evidence](security-research/AUDIT_2026-10-24.md).
+
+## Historical edition notes
+
 # Edition 4.2 — image-free portfolio
 
 09/26/2026. Preserves the technical source code, synthetic datasets and existing screen-development prose. Personal images are omitted from every publication surface, including nested downloadable archives and PDF objects.

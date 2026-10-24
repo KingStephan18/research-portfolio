@@ -1,3 +1,19 @@
+# Current repository validation — 10/24/2026
+
+[Detailed public audit and fixes](security-research/AUDIT_2026-10-24.md).
+
+The current `python verify.py` run on Python 3.13.5 / Linux passes **108 tests**: 45 Evidence Ledger, 23 Permission Boundary Lab, 25 Maintainer Workflow Review and 15 repository-audit checks. Both committed JSON results are reproduced exactly. The verifier checks manifest syntax, uniqueness, canonical relative paths, complete non-ignored artifact coverage and content hashes; an empty or incomplete manifest no longer yields PASS. Git internals, bytecode, `.venv`, `.env`/`.env.*` and the OS metadata files listed in `.gitignore` are excluded from inventory; they cannot be added as manifest artifacts. Store local audit logs outside this snapshot or they will correctly appear as unlisted files.
+
+Tests added in this audit first reproduced the relevant failure modes and then passed after repair. All 16 embedded downloads and three inline scripts in `index.html` were compared with the previous public version and remain unchanged. The two embedded ZIPs retain valid CRCs, safe member paths and matching internal manifests.
+
+Chromium rendered the staged HTML at 1440×1000, 768×1024 and 390×844, with no horizontal overflow or JavaScript errors; the existing filters and JavaScript-disabled content were checked. These checks used the document contents in an isolated browser: file/localhost URL navigation was blocked by that environment, so this is **not** an anonymous live-site or network-navigation test. CSP script hashes and internal fragments passed separate static checks.
+
+The tests run only local synthetic fixtures; they are not scans of the owner's computer or third-party infrastructure. No Windows execution, other Python-version execution, independent security certification or complete secret-detection claim is made. Source-only analysis and recorded upstream advisories do not validate original vulnerability candidates.
+
+---
+
+## Historical validation record (retained)
+
 # Validation
 
 Edition 4.2 · 09/26/2026
