@@ -19,7 +19,9 @@ def ignored_file(name: str) -> bool:
 
 
 def run(command: list[str]) -> subprocess.CompletedProcess:
-    env = {**os.environ, 'PYTHONDONTWRITEBYTECODE': '1'}
+    # Use UTF-8 mode for subprocesses and nested CLI tests on Windows,
+    # regardless of the console's legacy code page (for example cp1252).
+    env = {**os.environ, 'PYTHONDONTWRITEBYTECODE': '1', 'PYTHONUTF8': '1'}
     return subprocess.run([sys.executable, *command], cwd=ROOT,
                           capture_output=True, text=True, encoding='utf-8',
                           timeout=60, env=env)

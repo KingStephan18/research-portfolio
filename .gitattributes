@@ -1,0 +1,13 @@
+# Keep manifest-covered text bytes consistent across Windows and Linux.
+* text=auto
+*.md text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.txt text eol=lf
+*.html text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.nojekyll text eol=lf
+*.pdf -text

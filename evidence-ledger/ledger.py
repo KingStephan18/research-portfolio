@@ -189,6 +189,9 @@ def main(argv: list[str] | None = None) -> int:
             message = str(exc)
         print(f'Input rejected: {message}', file=sys.stderr)
         return 2
+    # Preserve Unicode output when Windows redirects stdout using cp1252.
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8')
     print(json.dumps(result, ensure_ascii=False, indent=2, sort_keys=True))
     return 0
 

@@ -15,6 +15,25 @@ I submitted this repository with my **Codex for Open Source application on 10/21
 
 **[Completed 10/24 repository audit](security-research/AUDIT_2026-10-24.md)** — reproducible fixes, 108 local tests, integrity checks and published-site navigation updates. [Open the portfolio website](https://kingstephan18.github.io/research-portfolio/).
 
+### For technical reviewers — shortest inspection path
+
+This repository records **author-directed, AI-assisted technical work**, not independent certification, newly discovered CVEs or production-ready security tooling. Current code and archived presentation assets are intentionally separate.
+
+| Inspect | Direct evidence | Boundary |
+|---|---|---|
+| [Maintainer Workflow Review](maintainer-security/README.md) | [Source](maintainer-security/workflow_review.py), [tests](maintainer-security/test_workflow_review.py), [threat model](maintainer-security/THREAT_MODEL.md) | Offline textual heuristics, not a full YAML parser or vulnerability scanner |
+| [Permission Boundary Lab](permission-boundary/README.md) | [Guard](permission-boundary/guard.py), [tests](permission-boundary/test_guard.py) | Synthetic decisions, no real authentication or execution |
+| [Evidence Ledger](evidence-ledger/README.md) | [Checker](evidence-ledger/ledger.py), [sample sources](evidence-ledger/claims.json) | Declared evidence structure, not truth verification |
+| [Reproduce and validate](VALIDATION.md) | `python verify.py`, [audit](security-research/AUDIT_2026-10-24.md), [SHA-256 manifest](SHA256SUMS.txt) | The 10/24 Linux run used Python 3.13.5; [11/14 Windows candidate audit](security-research/AUDIT_2026-11-14.md) |
+
+The proposed [GitHub Actions workflow](.github/workflows/verify.yml) runs the same verifier on pushes and pull requests after it is published. Its actual pass/fail state must be checked in GitHub Actions. Run locally from the repository root:
+
+```sh
+python verify.py
+```
+
+**Reuse rights:** the repository is publicly readable, but no reuse license has been selected. Do not represent this code as OSI-licensed open source before an authorized license decision. The creative work has separate rights considerations.
+
 ### Two paths
 
 **[Research and technical samples](#research-and-technical-samples)** — runnable demonstrations, a transparent synthetic case and method notes.

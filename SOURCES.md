@@ -30,3 +30,12 @@ References are threat-context and design sources, not endorsements of the sample
 13. OpenAI, *Codex for Open Source*: program description, not evidence of selection of this project. https://openai.com/form/codex-for-oss/
 
 The public [research overview](security-research/README.md) distinguishes upstream disclosures from original research candidates. The [10/24 audit](security-research/AUDIT_2026-10-24.md) reports repository checks, not a new third-party vulnerability discovery. Earlier references retain their original review dates; they were not all refreshed in this audit.
+
+## CI supply-chain source references — 11/14/2026
+
+The local candidate `.github/workflows/verify.yml` uses full pinned commits checked against the first-party GitHub API:
+
+- `actions/checkout` v7.0.1 → `3d3c42e5aac5ba805825da76410c181273ba90b1`: https://api.github.com/repos/actions/checkout/git/ref/tags/v7.0.1
+- `actions/setup-python` v7.1.0 → `6d4fd22b20465ccc0f7354476588e8df7c9ca0e0`: https://api.github.com/repos/actions/setup-python/git/ref/tags/v7.1.0
+
+Pins constrain action revisions, not the trustworthiness of the publisher, runner or source repository. No CI run has yet been observed for this candidate.

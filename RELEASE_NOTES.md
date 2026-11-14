@@ -1,3 +1,14 @@
+# Local candidate maintenance — 11/14/2026 (NOT PUBLISHED)
+
+- Reproduced a Windows SHA-256 manifest/line-ending mismatch under system `core.autocrlf=true`; added `.gitattributes` to enforce LF for manifest-covered text files on new checkouts.
+- Reproduced and fixed a Windows `cp1252` Unicode-output failure in Evidence Ledger by making CLI stdout and test subprocess encodings consistent.
+- On Windows 11/Python 3.13.15, the candidate passed 108 authored tests (106 passed, 2 skipped for symlink privileges). Regenerate the final manifest after all documentation edits and rerun the verifier before publication.
+- Added a proposed minimal GitHub Actions workflow with pinned official actions and read-only token permissions; no CI run has yet been claimed.
+- Updated the profile README and portfolio's maintainer-facing inspection path, preserving archived edition 4.2 assets, creative work and AI-authorship provenance.
+- No license, public commit, merge, GitHub settings, user account, or historical archive was changed.
+
+---
+
 # Live repository maintenance — 10/24/2026
 
 - Added current cybersecurity research to the existing website navigation and page; corrected its stale footer edition label. The 16 embedded edition 4.2 downloads are unchanged.

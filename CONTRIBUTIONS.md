@@ -25,3 +25,7 @@ Edition 4.2 · 09/26/2026
 The synthetic sample people, records and systems are invented. The portfolio identity is not synthetic test data. Public method references are listed in SOURCES.md. No official employer affiliation, representation, client engagement, professional certification or unaided authorship is implied.
 
 No reuse license has been chosen in this workflow. This statement does not claim rights that have not been established.
+
+## Additive source-maintenance review — 11/14/2026
+
+Stephan directed a scoped cross-platform audit of the two public GitHub portfolios. OpenAI assistance prepared and tested local fixes to CLI Unicode output, Windows line-ending integrity, a read-only proposed CI workflow and reviewer-facing documentation. The owner retains the decision to publish or license the resulting changes. This is a local, author-directed candidate, not a deployed GitHub Action, an independently certified audit or evidence of OpenAI program selection. See `security-research/AUDIT_2026-11-14.md`.

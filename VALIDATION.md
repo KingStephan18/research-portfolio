@@ -1,3 +1,11 @@
+# Cross-platform verification — 11/14/2026 (local candidate)
+
+The public baseline `f533b993` was cloned on Windows 11 with Git 2.55.0 and Python 3.13.15. Under the system `core.autocrlf=true`, the repository's LF-based SHA-256 manifest reported many text-file hash mismatches, while one Unicode CLI test failed on the Windows `cp1252` output code page. A fresh checkout with `core.autocrlf=false` isolated the remaining Unicode failure. Both causes were reproduced before the fix.
+
+The candidate adds `.gitattributes` to keep manifest-covered text files LF on future checkouts, makes test subprocesses use `PYTHONUTF8=1` in `verify.py`, and makes `evidence-ledger/ledger.py` emit UTF-8 on CLI stdout when supported. On the LF-preserving local Windows clone, `python verify.py` then produced **OVERALL: PASS**: 108 authored tests, **106 passed, 2 skipped** because symlink creation was unavailable; both sample JSON outputs matched committed bytes. Manifest/inventory verification passed (43 entries before the present documentation update; manifest must be regenerated for the final candidate). The public workflow is not deployed and no GitHub CI run has been observed. Full context: [11/14 cross-platform audit](security-research/AUDIT_2026-11-14.md).
+
+---
+
 # Current repository validation — 10/24/2026
 
 [Detailed public audit and fixes](security-research/AUDIT_2026-10-24.md).
