@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Offline checks of the actual public HTML, not a deployment assertion."""
 from __future__ import annotations
 import base64

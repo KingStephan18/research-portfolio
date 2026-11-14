@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
 """Run local samples, reproduce fixtures, and verify complete artifact integrity."""
 from __future__ import annotations
 import hashlib

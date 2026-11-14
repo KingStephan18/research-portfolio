@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Regression tests for read-only input handling; no external workflows run."""
 from __future__ import annotations
 import importlib.util

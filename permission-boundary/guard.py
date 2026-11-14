@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Local authorization-decision demonstration, not an execution sandbox.
 
 The caller supplies authenticated principal, trusted policy, clock, revocations

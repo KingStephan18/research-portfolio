@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT -->
 # Permission Boundary Lab
 
 A small, executable authorization-decision lab. A proposed action is data; it cannot grant itself permission.

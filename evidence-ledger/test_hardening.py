@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Regression cases added during the portfolio's second audit."""
 from __future__ import annotations
 import json

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
 """Run the fixed synthetic decision scenarios; no external actions are taken."""
 from __future__ import annotations
 import hashlib

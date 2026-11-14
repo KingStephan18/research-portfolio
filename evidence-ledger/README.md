@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT -->
 # Evidence Ledger
 
 A small deterministic Python example for reviewing **reference structure**, not deciding truth.

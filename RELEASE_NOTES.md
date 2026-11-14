@@ -1,3 +1,20 @@
+# Scoped MIT licensing of technical components ? 11/14/2026
+
+- Added standard MIT terms (`LICENSE`) applying **only** to the exact 24
+  technical files listed in `LICENSING.md`.
+- Added file-specific SPDX notices for commentable source/configuration/docs;
+  JSON fixtures are expressly included by exact path.
+- Updated current-facing documentation while preserving historical audit
+  records, contribution/AI provenance and project boundaries.
+- Creative writing, acting materials, genealogy/identity research examples,
+  website/bundles and other research notes were **not** relicensed.
+- No GitHub account, branch settings, private stores or external products
+  were altered as part of this licensing decision.
+- Local Windows verifier `OVERALL: PASS` (106 tests passed, 2 skipped),
+  47 manifest entries verified; GitHub CI verification awaits publication.
+
+---
+
 # Local candidate maintenance — 11/14/2026 (NOT PUBLISHED)
 
 - Reproduced a Windows SHA-256 manifest/line-ending mismatch under system `core.autocrlf=true`; added `.gitattributes` to enforce LF for manifest-covered text files on new checkouts.

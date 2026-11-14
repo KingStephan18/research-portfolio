@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT -->
 # Permission Boundary Lab
 ## A proposed action is not permission to take it
 

@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Verifier regressions use synthetic folders and stub only subprocess suites."""
 from __future__ import annotations
 from contextlib import redirect_stdout

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
 """Inspect source references, shared origins and declared contradictions.
 
 Synthetic demonstration only. Relations and origin groups are supplied by a

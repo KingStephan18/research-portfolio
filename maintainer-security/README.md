@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT -->
 # Maintainer Workflow Review — offline supply-chain checks
 
 **Published 10/21/2026; input-handling revision 0.1.1 on 10/24/2026.** A small, inspectable, read-only Python reference tool for maintainers reviewing selected GitHub Actions risks. Software supply-chain compromise is a cross-border concern: a single upstream workflow can expose credentials, alter releases, or affect downstream users. This tool only identifies a limited set of patterns **for human review**; it cannot establish that any repository is secure or compromised.

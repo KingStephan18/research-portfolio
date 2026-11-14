@@ -1,3 +1,4 @@
+<!-- SPDX-License-Identifier: MIT -->
 # Cross-border software-supply-chain threats — maintainer research note
 
 **Research baseline: 10/21/2026.** Scope: open-source maintainers, third-party Actions, automated code review and software releases. This is a bounded research/practice note, **not** a claim that all countries have the same incidents, nor an incident alert or attribution report.

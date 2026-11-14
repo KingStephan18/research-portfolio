@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Synthetic offline tests. No workflows are executed."""
 from __future__ import annotations
 

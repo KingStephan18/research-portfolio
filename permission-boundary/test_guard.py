@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Tests exercise local decision logic, never a real account or model."""
 from __future__ import annotations
 import copy

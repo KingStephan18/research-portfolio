@@ -39,3 +39,11 @@ The local candidate `.github/workflows/verify.yml` uses full pinned commits chec
 - `actions/setup-python` v7.1.0 → `6d4fd22b20465ccc0f7354476588e8df7c9ca0e0`: https://api.github.com/repos/actions/setup-python/git/ref/tags/v7.1.0
 
 Pins constrain action revisions, not the trustworthiness of the publisher, runner or source repository. No CI run has yet been observed for this candidate.
+
+## Licensing source references ? 11/14/2026
+
+- SPDX MIT standard text: https://spdx.org/licenses/MIT
+- GitHub's license guidance: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository
+- REUSE per-file licensing guidance: https://reuse.software/spec/
+
+These are reference materials, not external legal certification.

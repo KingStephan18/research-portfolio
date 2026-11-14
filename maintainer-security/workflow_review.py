@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# SPDX-License-Identifier: MIT
 """Offline, read-only heuristics for selected GitHub Actions maintainer risks.
 
 Not a YAML parser, vulnerability scanner, CI policy engine, or security verdict.

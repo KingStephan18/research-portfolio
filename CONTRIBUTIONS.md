@@ -24,7 +24,7 @@ Edition 4.2 · 09/26/2026
 
 The synthetic sample people, records and systems are invented. The portfolio identity is not synthetic test data. Public method references are listed in SOURCES.md. No official employer affiliation, representation, client engagement, professional certification or unaided authorship is implied.
 
-No reuse license has been chosen in this workflow. This statement does not claim rights that have not been established.
+No reuse license had been chosen for the archived 09/26/2026 edition 4.2. On 11/14/2026 the owner authorized MIT reuse rights for only the technical files explicitly listed in [LICENSING.md](LICENSING.md). All other content and authorship/provenance caveats remain unchanged. This statement does not claim rights that have not been established.
 
 ## Additive source-maintenance review — 11/14/2026
 

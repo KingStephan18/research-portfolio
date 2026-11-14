@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 name: Verify Python research portfolio
 
 on:

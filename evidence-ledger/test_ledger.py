@@ -1,3 +1,4 @@
+# SPDX-License-Identifier: MIT
 """Tests for a deterministic reference checker; no model/API calls."""
 from __future__ import annotations
 import copy

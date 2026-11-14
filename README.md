@@ -32,7 +32,7 @@ The proposed [GitHub Actions workflow](.github/workflows/verify.yml) runs the sa
 python verify.py
 ```
 
-**Reuse rights:** the repository is publicly readable, but no reuse license has been selected. Do not represent this code as OSI-licensed open source before an authorized license decision. The creative work has separate rights considerations.
+**Reuse rights:** Three technical Python tools, their listed tests, synthetic technical fixtures and direct supporting files are available under the [MIT License](LICENSE), strictly within the [file-by-file scope](LICENSING.md). Acting, fiction, other research texts, website design and archived presentation assets remain outside the MIT grant.
 
 ### Two paths
 
@@ -79,4 +79,4 @@ Archived downloads: edition 4.2 · 09/26/2026. Live repository and website maint
 
 A new [Maintainer Workflow Review](maintainer-security/README.md) Python sample checks selected GitHub Actions supply-chain risk patterns **offline and read-only**. Its [threat model](maintainer-security/THREAT_MODEL.md) connects concrete maintainer controls with ENISA's 2026 threat picture and documented OpenSSF/GitHub guidance. It is a limited, author-tested heuristic checker, **not** a vulnerability detection service or evidence of a real-world security improvement.
 
-Run `python -m unittest discover -s maintainer-security -v` for the new synthetic tests. To inspect workflows under a local repository, use `python maintainer-security/workflow_review.py /path/to/repository`. A missing workflow directory produces `NOT_ASSESSED`, not a safety claim. This extension is maintained as repository source only; it has not been inserted into the frozen edition 4.2 downloadable portfolio package or released as an independently licensed project.
+Run `python -m unittest discover -s maintainer-security -v` for the new synthetic tests. To inspect workflows under a local repository, use `python maintainer-security/workflow_review.py /path/to/repository`. A missing workflow directory produces `NOT_ASSESSED`, not a safety claim. This extension's source is MIT-licensed within the explicit [file-by-file scope](LICENSING.md); it has not been inserted into the frozen edition 4.2 downloadable portfolio package or released as a separate distributable package.

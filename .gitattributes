@@ -1,5 +1,7 @@
+# SPDX-License-Identifier: MIT
 # Keep manifest-covered text bytes consistent across Windows and Linux.
 * text=auto
+LICENSE text eol=lf
 *.md text eol=lf
 *.py text eol=lf
 *.json text eol=lf
