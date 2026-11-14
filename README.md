@@ -26,7 +26,7 @@ This repository records **author-directed, AI-assisted technical work**, not ind
 | [Evidence Ledger](evidence-ledger/README.md) | [Checker](evidence-ledger/ledger.py), [sample sources](evidence-ledger/claims.json) | Declared evidence structure, not truth verification |
 | [Reproduce and validate](VALIDATION.md) | `python verify.py`, [audit](security-research/AUDIT_2026-10-24.md), [SHA-256 manifest](SHA256SUMS.txt) | The 10/24 Linux run used Python 3.13.5; [11/14 Windows candidate audit](security-research/AUDIT_2026-11-14.md) |
 
-The proposed [GitHub Actions workflow](.github/workflows/verify.yml) runs the same verifier on pushes and pull requests after it is published. Its actual pass/fail state must be checked in GitHub Actions. Run locally from the repository root:
+The [GitHub Actions verification workflow](.github/workflows/verify.yml) runs `python verify.py` on pushes and pull requests. Protected `main` requires the successful `verify` check before a pull request can be merged. Inspect actual results in [GitHub Actions](https://github.com/KingStephan18/research-portfolio/actions); a local pass alone does not establish CI success. Run locally from the repository root:
 
 ```sh
 python verify.py
